@@ -1,5 +1,5 @@
-import BlurText from '../components/Blurtext';
-import FloatingLines from '../components/FloatingLines';
+import BlurText from "../components/Blurtext";
+import FloatingLines from "../components/FloatingLines";
 
 export default function Hero() {
   return (
@@ -10,6 +10,8 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <FloatingLines
           enabledWaves={["top", "middle", "bottom"]}
+          linesGradient={["#ff00ff", "#00ffff", "#FA78E2"]}
+          backgroundColor="#ffffff00"
           lineCount={5}
           lineDistance={5}
           bendRadius={10}
@@ -17,6 +19,7 @@ export default function Hero() {
           interactive={true}
           parallax={true}
           mouseDamping={0.03}
+          mixBlendMode="screen"
         />
       </div>
 
@@ -24,7 +27,6 @@ export default function Hero() {
 
       <div className="relative w-full pointer-events-none z-20 flex flex-col items-center justify-center min-h-screen px-6 text-center">
         <div className="max-w-5xl mx-auto pointer-events-auto">
-
           <BlurText
             text="Hi, I'm Cyrus James"
             delay={60}
@@ -36,7 +38,7 @@ export default function Hero() {
             delay={140}
             className="flex justify-center text-xl sm:text-2xl md:text-3xl text-zinc-400 mb-10 max-w-3xl mx-auto"
           />
-          
+
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center w-full max-w-xs sm:max-w-none mx-auto">
             <button className="px-8 sm:px-10 py-4 bg-white text-black font-semibold rounded-2xl hover:bg-zinc-200 transition-all duration-300 active:scale-[0.97] text-base sm:text-lg">
               View My Projects

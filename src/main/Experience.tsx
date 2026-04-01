@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import BlurText from "../components/Blurtext";
 
 export default function Experience() {
   const experiences = [
@@ -11,8 +12,8 @@ export default function Experience() {
         "Built responsive web applications for clients using React, Next.js, Tailwind CSS, and Node.js",
         "Delivered 10+ projects including e-commerce sites, dashboards, and landing pages",
         "Managed full project lifecycle from client consultation to deployment on Vercel/Netlify",
-        "Integrated third-party APIs, payment gateways, and authentication systems"
-      ]
+        "Integrated third-party APIs, payment gateways, and authentication systems",
+      ],
     },
     {
       year: "2022 – 2023",
@@ -23,8 +24,8 @@ export default function Experience() {
         "Developed and maintained multiple client websites using HTML, CSS, JavaScript, and React",
         "Collaborated with designers to implement pixel-perfect UI from Figma files",
         "Optimized site performance (Lighthouse scores 90+), SEO, and accessibility",
-        "Assisted in migrating legacy sites to modern frameworks"
-      ]
+        "Assisted in migrating legacy sites to modern frameworks",
+      ],
     },
     {
       year: "2021 – 2022",
@@ -34,8 +35,8 @@ export default function Experience() {
       description: [
         "Assisted in building internal tools and client-facing websites",
         "Learned version control with Git, basic backend concepts, and responsive design principles",
-        "Contributed to code reviews and bug fixing"
-      ]
+        "Contributed to code reviews and bug fixing",
+      ],
     },
   ];
 
@@ -43,21 +44,15 @@ export default function Experience() {
     <section id="experience" className="py-20 md:py-32 px-6 bg-zinc-950/20">
       <div className="max-w-5xl mx-auto">
         {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Work <span className="text-purple-400">Experience</span>
-          </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">
-            My professional journey and key roles
-          </p>
-          <div className="w-24 h-1 bg-purple-600 mx-auto mt-6 rounded-full" />
-        </motion.div>
+
+        <div className="space-y-8">
+          <BlurText
+            text="Work Experience"
+            delay={60}
+            className="text-5xl md:text-6xl font-bold tracking-tighter mb-4"
+          />
+          <div className="h-1 w-20 bg-white/30 mt-2" />
+        </div>
 
         {/* Timeline */}
         <div className="relative">
@@ -72,7 +67,7 @@ export default function Experience() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: index * 0.15 }}
               className={`relative mb-12 md:mb-16 flex flex-col md:flex-row items-start md:items-center gap-6 ${
-                index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               }`}
             >
               <div className="flex">
