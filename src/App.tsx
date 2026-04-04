@@ -7,19 +7,15 @@ import Projects from "./main/Projects";
 import Skills from "./main/Skills";
 import Contact from "./main/Contact";
 import Footer from "./main/Footer";
+import Grainient from "./components/Grainient";
 
 function App() {
   const [heroKey, setHeroKey] = useState(0);
-
-  // Theme handling moved to App for global control
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const initialDark = savedTheme ? savedTheme === "dark" : prefersDark;
     setIsDark(initialDark);
     document.documentElement.classList.toggle("dark", initialDark);
@@ -39,23 +35,57 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-white">
-      <Navbar
-        onNavClick={handleNavClick}
-        isDark={isDark}
-        toggleTheme={toggleTheme}
-      />
+    <div className="relative min-h-screen text-zinc-900 dark:text-white">
 
-      <main>
-        <Hero key={heroKey} />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
+      <div className="fixed inset-0 z-0">
+        {isDark ? (
+          <div className="w-full h-full bg-zinc-950" />
+        ) : (
+          <Grainient
+            color1="#fba2fb"
+            color2="#7af5f5"
+            color3="#fda0ec"
+            timeSpeed={0.25}
+            colorBalance={0}
+            warpStrength={1}
+            warpFrequency={5}
+            warpSpeed={2}
+            warpAmplitude={50}
+            blendAngle={0}
+            blendSoftness={0.06}
+            rotationAmount={500}
+            noiseScale={0}
+            grainAmount={0.06}
+            grainScale={2}
+            grainAnimated={false}
+            contrast={1.5}
+            gamma={1}
+            saturation={1}
+            centerX={0}
+            centerY={0}
+            zoom={2}
+          />
+        )}
+      </div>
 
-      <Footer />
+      {/* Content */}
+      <div className="relative z-10">
+        <Navbar
+          onNavClick={handleNavClick}
+          isDark={isDark}
+          toggleTheme={toggleTheme}
+        />
+        <main>
+          <Hero key={heroKey} isDark={isDark} />
+          <About />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+
     </div>
   );
 }

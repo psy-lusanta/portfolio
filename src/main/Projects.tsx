@@ -7,7 +7,7 @@ const projects = [
     title: "Project Title One",
     description: "A stunning web experience with smooth animations and 3D elements built with React and Three.js.",
     tech: ["React", "Three.js", "Tailwind", "Framer Motion"],
-    image: "/project1.jpg",           // Replace with your actual images later
+    image: "/project1.jpg",           
     live: "#",
     github: "#",
     category: "Web Design"
@@ -36,7 +36,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-24 md:py-32 bg-zinc-950">
+    <section id="projects" className="relative py-24 md:py-32 bg-zinc-950/20">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header */}

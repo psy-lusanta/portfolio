@@ -3,7 +3,7 @@ import BlurText from '../components/Blurtext';
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative py-20 md:py-32 bg-zinc-950 border-t border-white/10">
+    <section id="contact" className="relative py-20 md:py-32 bg-zinc-950/20 border-t border-white/10">
       <div className="max-w-5xl mx-auto px-6">
         
         {/* Header */}

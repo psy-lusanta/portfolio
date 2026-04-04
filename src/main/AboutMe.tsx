@@ -3,11 +3,10 @@ import BlurText from '../components/Blurtext';
 
 export default function About() {
   return (
-    <section id="about" className="relative py-24 md:py-32 bg-zinc-950 overflow-hidden">
+    <section id="about" className="py-24 md:py-32 bg-zinc-950/20">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           
-          {/* Left Side - Text Content */}
           <div className="space-y-8">
             <div>
               <BlurText 

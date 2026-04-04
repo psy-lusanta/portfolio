@@ -43,7 +43,6 @@ export default function Experience() {
   return (
     <section id="experience" className="py-20 md:py-32 px-6 bg-zinc-950/20">
       <div className="max-w-5xl mx-auto">
-        {/* Title */}
 
         <div className="space-y-8">
           <BlurText
@@ -54,9 +53,7 @@ export default function Experience() {
           <div className="h-1 w-20 bg-white/30 mt-2" />
         </div>
 
-        {/* Timeline */}
         <div className="relative">
-          {/* Vertical line */}
           <div className="absolute left-4 md:left-1/2 h-full w-0.5 bg-zinc-700 transform md:-translate-x-1/2" />
 
           {experiences.map((exp, index) => (

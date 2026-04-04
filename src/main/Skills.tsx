@@ -40,7 +40,7 @@ export default function Skills() {
 return (
     <section 
       id="skills" 
-      className="py-20 md:py-32 px-6 bg-zinc-950/30 p"
+      className="py-20 md:py-32 px-6 bg-zinc-950/20 p"
     >
       <div className="max-w-6xl mx-auto">
         <motion.div
