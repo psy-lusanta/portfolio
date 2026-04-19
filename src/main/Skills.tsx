@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { SiPostgresql, SiJavascript, SiTailwindcss, SiKalilinux, SiPostman } from 'react-icons/si';
 import { FaReact, FaServer, FaNodeJs, FaUbuntu, FaGitAlt, FaHtml5, FaCss3, FaWindows} from 'react-icons/fa';
 import { TbBrandAdobePhotoshop, TbBrandAdobePremier } from 'react-icons/tb';
+import BlurText from '../components/Blurtext';
 
 export default function Skills() {
   const skills = [  
@@ -40,23 +41,21 @@ export default function Skills() {
 return (
     <section 
       id="skills" 
-      className="py-20 md:py-32 px-6"
+      className="py-16 md:py-32"
     >
       <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            My <span className="text-purple-400">Skills</span>
-          </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
-            Technologies & tools I excel at — always eager to learn more and stay on the cutting edge
-          </p>
-          <div className="w-24 h-1 bg-purple-600 mx-auto mt-6 rounded-full" />
+          <BlurText
+            text="My Skills"
+            delay={60}
+            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-4 text-zinc-900 dark:text-white"
+          />
+          <div className="h-1 w-20 rounded-full bg-black/50 dark:bg-white/50" />
         </motion.div>
 
         <motion.div

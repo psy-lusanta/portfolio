@@ -24,7 +24,7 @@ export default function Hero({ isDark }: HeroProps) {
       className="relative min-h-screen w-full overflow-hidden flex items-center "
     >
       {isDark && (
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-zinc-950/95 to-transparent z-10">
           <FloatingLines
             enabledWaves={["top", "middle", "bottom"]}
             linesGradient={["#ff00ff", "#00ffff", "#FA78E2"]}
