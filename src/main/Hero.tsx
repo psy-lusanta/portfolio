@@ -1,17 +1,27 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import BlurText from "../components/Blurtext";
 import FloatingLines from "../components/FloatingLines";
 import RotatingText from "../components/RotatingText";
+import { useRef } from "react";
 
 interface HeroProps {
   isDark: boolean;
 }
 
 export default function Hero({ isDark }: HeroProps) {
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["end 40%", "start start", ],  
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
   return (
     <section
       id="home"
-      className="relative min-h-screen bg-zinc-950/20 w-full overflow-hidden flex items-center"
+      className="relative min-h-screen w-full overflow-hidden flex items-center "
     >
       {isDark && (
         <div className="absolute inset-0 z-0">
@@ -54,19 +64,8 @@ export default function Hero({ isDark }: HeroProps) {
                   Web Developer &
                 </p>
                 <RotatingText
-                  texts={[
-                    "Team Lead",
-                    "IT Support Specialist",
-                    "UI Engineer",
-                    "Creative Coder",
-                  ]}
-                  mainClassName="text-2xl sm:text-3xl md:text-4xl font-medium 
-                               px-6 py-2 rounded-2xl 
-                               bg-white/10 dark:bg-white/5 
-                               backdrop-blur-md border border-white/10 
-                               text-zinc-900 dark:text-white
-                               hover:bg-white/20 dark:hover:bg-white/10 
-                               transition-all duration-500 ease-in-out text-center "
+                  texts={["Team Lead", "IT Support Specialist", "UI Engineer", "Creative Coder"]}
+                  mainClassName="text-2xl sm:text-3xl md:text-4xl font-medium px-6 py-2 rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/10 text-zinc-900 dark:text-white hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-500 ease-in-out text-center"
                   staggerFrom="last"
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
@@ -91,12 +90,16 @@ export default function Hero({ isDark }: HeroProps) {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center text-zinc-500 text-sm z-30">
+      <motion.div
+        ref={heroRef}
+        style={{ opacity }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center text-zinc-500 dark:text-zinc-400 text-sm z-30 pointer-events-none"
+      >
         <span>Scroll to explore</span>
-        <div className="mt-2 w-5 h-8 border-2 border-zinc-500 rounded-full flex items-center justify-center">
-          <div className="w-1 h-2 bg-zinc-500 rounded-full animate-bounce" />
+        <div className="mt-2 w-5 h-8 border-2 border-zinc-500 dark:border-zinc-400 rounded-full flex items-center justify-center">
+          <div className="w-1 h-2 bg-zinc-500 dark:bg-zinc-400 rounded-full animate-bounce" />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

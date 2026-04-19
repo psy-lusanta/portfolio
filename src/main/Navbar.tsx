@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ShinyText from "../components/ShinyText";
 
@@ -33,15 +33,13 @@ export default function Navbar({
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 md:px-3 sm:px-6 sm:py-5">
-        
-        {/* Main Navbar */}
-        <div className="backdrop-blur-md bg-white/10 dark:bg-zinc-950/10 
+        <div
+          className="backdrop-blur-md bg-white/10 dark:bg-zinc-950/10 
                         border border-zinc-200/80 dark:border-white/10 
                         px-5 md:gap-2 sm:px-8 py-4 sm:py-5 
                         flex items-center justify-between 
-                        rounded-3xl shadow-xl transition-all duration-300">
-
-          {/* Logo */}
+                        rounded-3xl shadow-xl transition-all duration-300"
+        >
           <div className="flex items-center gap-3">
             <span className="font-bold text-2xl sm:text-3xl tracking-tight">
               {isDark ? (
@@ -88,20 +86,33 @@ export default function Navbar({
             ))}
           </div>
 
-          {/* Right Side Controls */}
           <div className="flex items-center gap-2 sm:gap-4">
-            
-            <button
-              onClick={toggleTheme}
-              className="p-2.5 sm:p-3 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all"
-              aria-label="Toggle theme"
-            >
-              {isDark ? (
-                <Sun size={22} className="text-amber-400" />
-              ) : (
-                <Moon size={22} className="text-zinc-700" />
-              )}
-            </button>
+            <label className="relative inline-flex items-center cursor-pointer">
+              <input
+                type="checkbox"
+                className="sr-only peer"
+                checked={!isDark}
+                onChange={toggleTheme}
+              />
+              <div
+                className="w-20 h-10 rounded-full ring-0 peer duration-500 outline-none 
+                    bg-gray-200 dark:bg-[#383838] overflow-hidden 
+                    shadow-lg shadow-gray-400 dark:shadow-gray-700 
+                    before:flex before:items-center before:justify-center 
+                    after:flex after:items-center after:justify-center 
+                    before:content-['☀️'] before:absolute before:h-8 before:w-8 
+                    before:top-1/2 before:bg-white before:rounded-full 
+                    before:left-1 before:-translate-y-1/2 before:transition-all 
+                    before:duration-700 peer-checked:before:opacity-0 
+                    peer-checked:before:rotate-90 peer-checked:before:-translate-y-full 
+                    after:content-['🌑'] after:absolute after:bg-[#1d1d1d] 
+                    after:rounded-full after:top-1 after:right-1 
+                    after:translate-y-full after:w-8 after:h-8 after:opacity-0 
+                    after:transition-all after:duration-700 
+                    peer-checked:after:opacity-100 peer-checked:after:rotate-180 
+                    peer-checked:after:translate-y-0"
+              ></div>
+            </label>
 
             <a
               href="#contact"
@@ -131,9 +142,11 @@ export default function Navbar({
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.25 }}
           >
-            <div className="backdrop-blur-2xl text-center bg-white/20 dark:bg-zinc-950/10 
+            <div
+              className="backdrop-blur-2xl text-center bg-white/20 dark:bg-zinc-950/10 
                             border border-zinc-200 dark:border-white/10 
-                            rounded-3xl shadow-2xl p-8">
+                            rounded-3xl shadow-2xl p-8"
+            >
               <div className="flex flex-col gap-6 text-lg font-medium">
                 {navLinks.map((link) => (
                   <a

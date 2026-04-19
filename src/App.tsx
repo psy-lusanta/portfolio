@@ -8,6 +8,7 @@ import Skills from "./main/Skills";
 import Contact from "./main/Contact";
 import Footer from "./main/Footer";
 import Grainient from "./components/Grainient";
+import Galaxy from "./components/Galaxy";
 
 function App() {
   const [heroKey, setHeroKey] = useState(0);
@@ -37,6 +38,7 @@ function App() {
   return (
     <div className="relative min-h-screen text-zinc-900 dark:text-white">
 
+      {/* Hero Background Only */}
       <div className="fixed inset-0 z-0">
         {isDark ? (
           <div className="w-full h-full bg-zinc-950" />
@@ -68,24 +70,34 @@ function App() {
         )}
       </div>
 
-      {/* Content */}
+      {/* Main Content */}
       <div className="relative z-10">
         <Navbar
           onNavClick={handleNavClick}
           isDark={isDark}
           toggleTheme={toggleTheme}
         />
+
         <main>
           <Hero key={heroKey} isDark={isDark} />
-          <About />
-          <Experience />
-          <Projects />
-          <Skills />
-          <Contact />
+
+          <div className="relative">
+            {isDark && (
+              <div className="fixed inset-0 z-[-1]">
+                <Galaxy />
+              </div>
+            )}
+
+            <About />
+            <Experience />
+            <Projects />
+            <Skills />
+            <Contact />
+          </div>
         </main>
+
         <Footer />
       </div>
-
     </div>
   );
 }

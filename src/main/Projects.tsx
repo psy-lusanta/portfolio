@@ -36,7 +36,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-24 md:py-32 bg-zinc-950/20">
+    <section id="projects" className="relative py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header */}
