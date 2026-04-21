@@ -8,7 +8,6 @@ export default function Contact() {
       className="relative py-20 md:py-32"
     >
       <div className="max-w-5xl mx-auto px-6">
-        {/* Header */}
         <div className="text-center mb-12 md:mb-16">
           <BlurText
             text="Let's Work Together"

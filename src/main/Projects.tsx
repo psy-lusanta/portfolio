@@ -6,12 +6,14 @@ import { useState } from "react";
 import IDFront from "../assets/idFront.jpg";
 import sendAPackage from "../assets/send-a-package.jpg";
 import TrackAndTrace from "../assets/track-and-trace.jpg";
+import RateEstimator from "../assets/rate-estimator.jpg";
 
 const projects = [
   {
     id: 1,
     title: "Company ID",
-    description: "A stunning web experience with smooth animations and 3D elements built with React and Three.js.",
+    description:
+      "A stunning web experience with smooth animations and 3D elements built with React and Three.js.",
     tech: ["React", "Three.js", "Tailwind"],
     image: IDFront,
     category: "Web Design",
@@ -19,8 +21,9 @@ const projects = [
   },
   {
     id: 2,
-    title: "E-Commerce Platform",
-    description: "Full-stack modern e-commerce website with cart system, payment integration, and admin dashboard.",
+    title: "Send A Package",
+    description:
+      "Full-stack modern e-commerce website with cart system, payment integration, and admin dashboard.",
     tech: ["Next.js", "TypeScript", "Stripe", "Prisma"],
     image: sendAPackage,
     live: "https://www.litexpress.com.ph/send-a-package",
@@ -28,12 +31,32 @@ const projects = [
   },
   {
     id: 3,
-    title: "AI Dashboard",
-    description: "Interactive analytics dashboard with real-time data visualization and AI-powered insights.",
+    title: "Track and Trace",
+    description:
+      "Interactive analytics dashboard with real-time data visualization and AI-powered insights.",
     tech: ["React", "Recharts", "OpenAI", "Tailwind"],
     image: TrackAndTrace,
     live: "https://litexpress.com.ph/track-and-trace/",
     category: "Dashboard",
+  },
+  {
+    id: 4,
+    title: "Rate Estimator",
+    description:
+      "A sleek rate estimation tool with dynamic forms, instant quotes, and smooth transitions.",
+    tech: ["React", "Framer Motion", "Tailwind"],
+    image: RateEstimator,
+    category: "Web Design",
+    showModal: true,
+    modalContent: (
+      <div className="text-center">
+        <img
+          src={RateEstimator}
+          alt="Rate Estimator"
+          className="w-full rounded-2xl shadow-2xl"
+        />
+      </div>
+    ),
   },
 ];
 
@@ -51,7 +74,6 @@ export default function Projects() {
   return (
     <section id="projects" className="relative py-24 md:py-32 ">
       <div className="max-w-6xl mx-auto px-6">
-
         <div className="text-center mb-16">
           <BlurText
             text="Featured Projects"
@@ -100,7 +122,10 @@ export default function Projects() {
 
                 <div className="flex flex-wrap gap-2 mb-8">
                   {project.tech.map((tech) => (
-                    <span key={tech} className="text-xs px-3 py-1 bg-zinc-800 text-zinc-400 rounded-full">
+                    <span
+                      key={tech}
+                      className="text-xs px-3 py-1 bg-zinc-800 text-zinc-400 rounded-full"
+                    >
                       {tech}
                     </span>
                   ))}
@@ -108,7 +133,10 @@ export default function Projects() {
 
                 <div className="flex gap-4">
                   <button
-                    onClick={(e) => { e.stopPropagation(); openModal(project); }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openModal(project);
+                    }}
                     className="flex-1 py-3 text-center bg-white text-black font-medium rounded-2xl hover:bg-zinc-200 transition-all"
                   >
                     Live Demo
@@ -142,7 +170,7 @@ export default function Projects() {
             </div>
 
             <div className="p-6 md:p-10 overflow-auto">
-              <ID />
+              {selectedProject.modalContent || <ID />}
             </div>
           </motion.div>
         </div>
