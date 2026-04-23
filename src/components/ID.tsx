@@ -80,8 +80,8 @@ const StyledWrapper = styled.div`
 
   .back-content {
     position: absolute;
-    width: 99%;
-    height: 99%;
+    width: 100%;
+    height: 100%;
     border-radius: 5px;
     overflow: hidden;
     z-index: 2;

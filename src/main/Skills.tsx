@@ -1,49 +1,47 @@
 import { motion } from 'framer-motion';
 import { SiPostgresql, SiJavascript, SiTailwindcss, SiKalilinux, SiPostman } from 'react-icons/si';
-import { FaReact, FaServer, FaNodeJs, FaUbuntu, FaGitAlt, FaHtml5, FaCss3, FaWindows} from 'react-icons/fa';
+import { FaReact, FaServer, FaNodeJs, FaUbuntu, FaGitAlt, FaHtml5, FaCss3, FaWindows, FaGithub } from 'react-icons/fa';
 import { TbBrandAdobePhotoshop, TbBrandAdobePremier } from 'react-icons/tb';
+import { DiMsqlServer } from "react-icons/di";
 import BlurText from '../components/Blurtext';
 
+const skills = [
+  { name: "HTML5",        icon: FaHtml5,                color: "#E34F26", category: "Frontend" },
+  { name: "CSS3",         icon: FaCss3,                 color: "#1572B6", category: "Frontend" },
+  { name: "JavaScript",   icon: SiJavascript,           color: "#F7DF1E", category: "Frontend" },
+  { name: "React",        icon: FaReact,                color: "#61DAFB", category: "Frontend" },
+  { name: "Tailwind CSS", icon: SiTailwindcss,          color: "#38B2AC", category: "Frontend" },
+  { name: "Node.js",      icon: FaNodeJs,               color: "#339933", category: "Backend"  },
+  { name: "PostgreSQL",   icon: SiPostgresql,           color: "#336791", category: "Backend"  },
+  { name: "SQL Server",   icon: DiMsqlServer,           color: "#CC2927", category: "Backend"  },
+  { name: "Git",          icon: FaGitAlt,               color: "#F05032", category: "Tools"    },
+  { name: "Postman",      icon: SiPostman,              color: "#FF6C37", category: "Tools"    },
+  { name: "Photoshop",    icon: TbBrandAdobePhotoshop,  color: "#2233E3", category: "Tools"    },
+  { name: "Premiere Pro", icon: TbBrandAdobePremier,    color: "#9999FF", category: "Tools"    },
+  { name: "GitHub",       icon: FaGithub,               color: "#E3E3E3", category: "Tools"    },
+  { name: "VMWare ESXi",  icon: FaServer,               color: "#808080", category: "Systems"  },
+  { name: "Windows",      icon: FaWindows,              color: "#0078D6", category: "Systems"  },
+  { name: "Ubuntu",       icon: FaUbuntu,               color: "#E95420", category: "Systems"  },
+  { name: "Kali Linux",   icon: SiKalilinux,            color: "#557C94", category: "Systems"  },
+];
+
+const categories = ["Frontend", "Backend", "Tools", "Systems"];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.06 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.4 } },
+};
+
 export default function Skills() {
-  const skills = [  
-    { name: "HTML5", icon: FaHtml5, color: "#E34F26" },
-    { name: "CSS3", icon: FaCss3, color: "#1572B6" },
-    { name: "React", icon: FaReact, color: "#61DAFB" },
-    { name: "Tailwind CSS", icon: SiTailwindcss, color: "#38B2AC" },
-    { name: "VMWare ESXi", icon: FaServer, color: "#808080" },
-    { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-    { name: "Node.js", icon: FaNodeJs, color: "#339933" },
-    { name: "Windows", icon: FaWindows, color: "#0078D6" },
-    { name: "Ubuntu", icon: FaUbuntu, color: "#E95420" },
-    { name: "Kali Linux", icon: SiKalilinux, color: "#557C94" },
-    { name: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
-    { name: "Git", icon: FaGitAlt, color: "#F05032" },
-    { name: "Postman", icon: SiPostman, color: "#FF6C37" },
-    { name: "Photoshop", icon: TbBrandAdobePhotoshop, color: "#31A8FF" },
-    { name: "Premiere Pro", icon: TbBrandAdobePremier, color: "#9999FF" },
-  ];
+  return (
+    <section id="skills" className="py-16 md:py-32">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-  };
-
-return (
-    <section 
-      id="skills" 
-      className="py-16 md:py-32"
-    >
-      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -55,51 +53,83 @@ return (
             delay={60}
             className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-4 text-zinc-900 dark:text-white"
           />
-          <div className="h-1 w-20 rounded-full bg-black/50 dark:bg-white/50" />
+          <div className="h-1 w-20 rounded-full bg-black/20 dark:bg-white/20" />
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="
-            grid 
-            grid-cols-2          /* mobile */
-            sm:grid-cols-3       /* small tablets */
-            md:grid-cols-5       /* medium screens */
-            lg:grid-cols-6       /* desktop */
-            gap-5 sm:gap-6 md:gap-8
-          "
-        >
-          {skills.map((skill) => (
-            <motion.div
-              key={skill.name}
-              variants={itemVariants}
-              className="
-                group flex flex-col items-center 
-                p-5 sm:p-6 rounded-xl 
-                bg-zinc-900/60 border border-zinc-800/70
-                hover:border-purple-600/50 hover:bg-zinc-900/80
-                transition-all duration-300
-                hover:shadow-lg hover:shadow-purple-900/20
-                backdrop-blur-sm
-              "
-            >
-              <div className="text-4xl sm:text-5xl mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                <skill.icon style={{ color: skill.color }} />
+        <div className="flex flex-col gap-10 md:gap-14">
+          {categories.map((category) => {
+            const categorySkills = skills.filter(s => s.category === category);
+            return (
+              <div key={category}>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="flex items-center gap-3 mb-5"
+                >
+                  <span className="text-xs font-semibold tracking-widest uppercase
+                                   text-zinc-500 dark:text-zinc-400">
+                    {category}
+                  </span>
+                  <div className="flex-1 h-px bg-zinc-200 dark:bg-zinc-800" />
+                </motion.div>
+
+                <motion.div
+                  variants={containerVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4"
+                >
+                  {categorySkills.map((skill) => (
+                    <SkillCard key={skill.name} skill={skill} />
+                  ))}
+                </motion.div>
+
               </div>
-              <span className="
-                text-xs sm:text-sm font-medium 
-                text-zinc-400 group-hover:text-zinc-200
-                transition-colors duration-300
-              ">
-                {skill.name}
-              </span>
-            </motion.div>
-          ))}
-        </motion.div>
+            );
+          })}
+        </div>
+
       </div>
     </section>
+  );
+}
+
+function SkillCard({ skill }: { skill: typeof skills[0] }) {
+  return (
+    <motion.div
+      variants={itemVariants}
+      whileHover={{ y: -4 }}
+      className="group flex flex-col items-center gap-2.5 p-4 sm:p-5 rounded-2xl
+                 bg-white/50 dark:bg-zinc-900/60
+                 border border-black/[0.08] dark:border-zinc-800/70
+                 backdrop-blur-sm
+                 cursor-default
+                 transition-colors duration-300
+                 hover:border-black/20 dark:hover:border-zinc-600/60
+                 hover:bg-white/70 dark:hover:bg-zinc-900/80"
+      style={{
+        boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+      }}
+    >
+      <div
+        className="relative text-3xl sm:text-4xl transition-transform duration-300 group-hover:scale-110"
+      >
+        <div
+          className="absolute inset-0 rounded-full blur-md opacity-0 group-hover:opacity-30 transition-opacity duration-300 scale-150"
+          style={{ background: skill.color }}
+        />
+        <skill.icon style={{ color: skill.color }} className="relative z-10" />
+      </div>
+
+      <span className="text-[11px] sm:text-xs font-medium text-center leading-tight
+                       text-zinc-500 dark:text-zinc-400
+                       group-hover:text-zinc-800 dark:group-hover:text-zinc-200
+                       transition-colors duration-300">
+        {skill.name}
+      </span>
+    </motion.div>
   );
 }
