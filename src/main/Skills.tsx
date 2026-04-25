@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
-import { SiPostgresql, SiJavascript, SiTailwindcss, SiKalilinux, SiPostman } from 'react-icons/si';
+import { SiPostgresql, SiJavascript, SiTailwindcss, SiKalilinux, SiPostman, SiOdoo } from 'react-icons/si';
 import { FaReact, FaServer, FaNodeJs, FaUbuntu, FaGitAlt, FaHtml5, FaCss3, FaWindows, FaGithub } from 'react-icons/fa';
-import { TbBrandAdobePhotoshop, TbBrandAdobePremier } from 'react-icons/tb';
-import { DiMsqlServer } from "react-icons/di";
+import { TbBrandAdobePremier } from 'react-icons/tb';
+import { DiMsqlServer, DiPython, DiPhotoshop } from "react-icons/di";
+import { VscVscode } from "react-icons/vsc";
 import BlurText from '../components/Blurtext';
 
 const skills = [
@@ -14,12 +15,15 @@ const skills = [
   { name: "Node.js",      icon: FaNodeJs,               color: "#339933", category: "Backend"  },
   { name: "PostgreSQL",   icon: SiPostgresql,           color: "#336791", category: "Backend"  },
   { name: "SQL Server",   icon: DiMsqlServer,           color: "#CC2927", category: "Backend"  },
+  { name: "Python",       icon: DiPython,               color: "#3776AB", category: "Backend"  },
   { name: "Git",          icon: FaGitAlt,               color: "#F05032", category: "Tools"    },
   { name: "Postman",      icon: SiPostman,              color: "#FF6C37", category: "Tools"    },
-  { name: "Photoshop",    icon: TbBrandAdobePhotoshop,  color: "#2233E3", category: "Tools"    },
+  { name: "Photoshop",    icon: DiPhotoshop,            color: "#2233E3", category: "Tools"    },
   { name: "Premiere Pro", icon: TbBrandAdobePremier,    color: "#9999FF", category: "Tools"    },
   { name: "GitHub",       icon: FaGithub,               color: "#E3E3E3", category: "Tools"    },
+  { name: "VS Code",      icon: VscVscode,              color: "#007ACC", category: "Tools"    },
   { name: "VMWare ESXi",  icon: FaServer,               color: "#808080", category: "Systems"  },
+  { name: "Odoo",         icon: SiOdoo,                 color: "#8320BA", category: "Systems"  },
   { name: "Windows",      icon: FaWindows,              color: "#0078D6", category: "Systems"  },
   { name: "Ubuntu",       icon: FaUbuntu,               color: "#E95420", category: "Systems"  },
   { name: "Kali Linux",   icon: SiKalilinux,            color: "#557C94", category: "Systems"  },
@@ -53,7 +57,7 @@ export default function Skills() {
             delay={60}
             className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-4 text-zinc-900 dark:text-white"
           />
-          <div className="h-1 w-20 rounded-full bg-black/20 dark:bg-white/20" />
+          <div className="h-1 w-20 rounded-full bg-black/50 dark:bg-white/50" />
         </motion.div>
 
         <div className="flex flex-col gap-10 md:gap-14">
@@ -80,7 +84,7 @@ export default function Skills() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4"
+                  className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4"
                 >
                   {categorySkills.map((skill) => (
                     <SkillCard key={skill.name} skill={skill} />
@@ -104,7 +108,7 @@ function SkillCard({ skill }: { skill: typeof skills[0] }) {
       whileHover={{ y: -4 }}
       className="group flex flex-col items-center gap-2.5 p-4 sm:p-5 rounded-2xl
                  bg-white/50 dark:bg-zinc-900/60
-                 border border-black/[0.08] dark:border-zinc-800/70
+                 border border-black/8 dark:border-zinc-800/70
                  backdrop-blur-sm
                  cursor-default
                  transition-colors duration-300

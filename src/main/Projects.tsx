@@ -83,7 +83,7 @@ const projects = [
     modalSize: "max-w-sm sm:max-w-xl md:max-w-3xl lg:max-w-5xl",
     showModal: true,
     modalContent: (
-      <div className="w-full h-[280px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
+      <div className="w-full h-70 sm:h-100 md:h-125 lg:h-150">
         <CircularGallery
           items={[
             { image: InventoryWebApp, text: "Dashboard" },
@@ -263,7 +263,7 @@ export default function Projects() {
             className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-4
                        text-zinc-900 dark:text-white"
           />
-          <div className="h-1 w-20 rounded-full bg-zinc-900/20 dark:bg-white/20" />
+          <div className="h-1 w-20 rounded-full bg-black/50 dark:bg-white/50" />
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">

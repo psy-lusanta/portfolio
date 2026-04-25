@@ -1,157 +1,357 @@
 import { motion } from "framer-motion";
 import BlurText from "../components/Blurtext";
+import { useState } from "react";
+
+import WebDevIcon from "../components/WebDev";
+import UIDesign from "../components/UIDesign";
+import IT from "../components/IT";
+import Deployment from "../components/Deployment";
 
 export default function Contact() {
+  const [focused, setFocused] = useState<string | null>(null);
+  const [hovered, setHovered] = useState(false);
+
+  const inputClass = (field: string) => `
+    w-full rounded-2xl px-5 py-4 text-base outline-none
+    bg-white/60 dark:bg-zinc-900/80
+    border transition-all duration-300
+    text-zinc-900 dark:text-white
+    placeholder-zinc-400 dark:placeholder-zinc-500
+    backdrop-blur-sm
+    ${
+      focused === field
+        ? "border-purple-400 dark:border-purple-500 shadow-sm shadow-purple-200 dark:shadow-purple-900/30"
+        : "border-black/10 dark:border-white/10"
+    }
+  `;
+
   return (
-    <section
-      id="contact"
-      className="relative py-20 md:py-32"
-    >
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-12 md:mb-16">
+    <section id="contact" className="relative py-16 md:py-32">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12 md:mb-16"
+        >
           <BlurText
             text="Let's Work Together"
             delay={50}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-4"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-4
+                       text-zinc-900 dark:text-white"
           />
-          <p className="text-zinc-400 text-base md:text-lg max-w-md mx-auto px-4">
+          <div className="h-1 w-20 rounded-full bg-black/50 dark:bg-white/50" />
+
+          <p className="text-zinc-500 dark:text-zinc-400 text-base md:text-lg max-w-md">
             Have a project in mind? I'm currently available for new
             opportunities.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-5 gap-10 md:gap-16">
+        <div className="grid md:grid-cols-5 gap-8 md:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-3 space-y-6 md:space-y-8"
+            transition={{ duration: 0.5 }}
+            className="md:col-span-3 flex flex-col gap-5"
           >
-            <div>
-              <label className="block text-sm text-zinc-400 mb-2">
-                Your Name
+            <div className="grid sm:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-2">
+                <label
+                  className="text-xs font-semibold tracking-widest uppercase
+                                  text-zinc-500 dark:text-zinc-400"
+                >
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="John Doe"
+                  className={inputClass("name")}
+                  onFocus={() => setFocused("name")}
+                  onBlur={() => setFocused(null)}
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label
+                  className="text-xs font-semibold tracking-widest uppercase
+                                  text-zinc-500 dark:text-zinc-400"
+                >
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  placeholder="you@example.com"
+                  className={inputClass("email")}
+                  onFocus={() => setFocused("email")}
+                  onBlur={() => setFocused(null)}
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label
+                className="text-xs font-semibold tracking-widest uppercase
+                                text-zinc-500 dark:text-zinc-400"
+              >
+                Subject
               </label>
               <input
                 type="text"
-                className="w-full bg-zinc-900 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-zinc-500 focus:outline-none focus:border-white/30 transition-colors text-base"
-                placeholder="John Doe"
+                placeholder="Project inquiry, collaboration..."
+                className={inputClass("subject")}
+                onFocus={() => setFocused("subject")}
+                onBlur={() => setFocused(null)}
               />
             </div>
 
-            <div>
-              <label className="block text-sm text-zinc-400 mb-2">
-                Email Address
-              </label>
-              <input
-                type="email"
-                className="w-full bg-zinc-900 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder-zinc-500 focus:outline-none focus:border-white/30 transition-colors text-base"
-                placeholder="you@example.com"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm text-zinc-400 mb-2">
+            <div className="flex flex-col gap-2">
+              <label
+                className="text-xs font-semibold tracking-widest uppercase
+                                text-zinc-500 dark:text-zinc-400"
+              >
                 Message
               </label>
               <textarea
-                rows={7}
-                className="w-full bg-zinc-900 border border-white/10 rounded-3xl px-5 py-4 text-white placeholder-zinc-500 focus:outline-none focus:border-white/30 transition-colors resize-y text-base"
+                rows={6}
                 placeholder="Tell me about your project..."
+                className={`${inputClass("message")} resize-none`}
+                onFocus={() => setFocused("message")}
+                onBlur={() => setFocused(null)}
               />
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full py-4 bg-white text-black font-semibold rounded-2xl hover:bg-zinc-200 transition-all text-base md:text-lg active:scale-[0.97]"
-            >
-              Send Message
-            </motion.button>
+            <div className="relative inline-flex w-full items-center justify-center group">
+              <div
+                className="absolute inset-0 rounded-2xl blur-lg opacity-50 group-hover:opacity-80 transition-opacity duration-500"
+                style={{
+                  background:
+                    "linear-gradient(to right, #a855f7, #ec4899, #38bdf8)",
+                }}
+              />
+              <a
+                role="button"
+                href="#contact"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+                className="w-full relative inline-flex items-center justify-center gap-2 rounded-xl bg-gray-900 px-8 py-3 text-base font-semibold text-white dark:bg-white dark:text-black"
+                style={{
+                  transform: hovered ? "translateY(-2px)" : "translateY(0)",
+                  transition:
+                    "transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease",
+                  boxShadow: hovered
+                    ? "0 10px 25px rgba(100,100,100,0.3)"
+                    : "none",
+                }}
+              >
+                Send Message
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 10 10"
+                  height="10"
+                  width="10"
+                  fill="none"
+                  className="stroke-white stroke-2 dark:stroke-black"
+                >
+                  <path
+                    d="M0 5h7"
+                    style={{
+                      opacity: hovered ? 1 : 0,
+                      transition: "opacity 0.2s ease-out",
+                    }}
+                  />
+                  <path
+                    d="M1 1l4 4-4 4"
+                    style={{
+                      transform: hovered ? "translateX(3px)" : "translateX(0)",
+                      transition: "transform 0.2s ease-out",
+                    }}
+                  />
+                </svg>
+              </a>
+            </div>
           </motion.div>
 
-          {/* Contact Info */}
-          <div className="md:col-span-2 space-y-10 md:space-y-12">
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-white">
-                Get in touch
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="md:col-span-2 flex flex-col gap-6"
+          >
+            <div
+              className="rounded-2xl p-5 sm:p-6 flex flex-col gap-4
+                  bg-white/50 dark:bg-zinc-900/60
+                  border border-black/8 dark:border-zinc-800
+                  backdrop-blur-sm"
+            >
+              <h3 className="text-lg font-bold text-zinc-900 dark:text-white">
+                What I offer
               </h3>
-              {/* <div className="duration-300 hover:rotate-0 -rotate-12 group border-sky-900 border-4 overflow-hidden rounded-2xl relative h-52 w-72 bg-sky-800 p-5 flex flex-col items-start gap-4">
-                <div className="text-gray-50">
-                  <span className="font-bold text-5xl">Jr</span>
-                  <p className="text-xs">Frontend Developer</p>
-                </div>
-                <button className="duration-300 hover:bg-sky-900 border hover:text-gray-50 bg-gray-50 font-semibold text-sky-800 px-3 py-2 flex flex-row items-center gap-3">
-                  Dowload CV
-                  <svg
-                    className="w-6 h-6 fill-current"
-                    height="100"
-                    preserveAspectRatio="xMidYMid meet"
-                    viewBox="0 0 100 100"
-                    width="100"
-                    x="0"
-                    xmlns="http://www.w3.org/2000/svg"
-                    y="0"
+
+              {[
+                {
+                  emoji: (
+                    <div
+                      style={{
+                        transform: "scale(0.13)",
+                        transformOrigin: "center",
+                      }}
+                    >
+                      <WebDevIcon />
+                    </div>
+                  ),
+                  title: "Web Development",
+                  desc: "React, Next.js, Node.js — fast, responsive, production-ready apps.",
+                  color: "#a855f7",
+                },
+                {
+                  emoji: (
+                    <div
+                      style={{
+                        transform: "scale(0.20)",
+                        transformOrigin: "center",
+                      }}
+                    >
+                      <UIDesign />
+                    </div>
+                  ),
+                  title: "UI / UX Design",
+                  desc: "Clean interfaces with smooth animations and great user experience.",
+                  color: "#ec4899",
+                },
+                {
+                  emoji: (
+                    <div
+                      style={{
+                        transform: "scale(0.24)",
+                        transformOrigin: "center",
+                      }}
+                    >
+                      <IT />
+                    </div>
+                  ),
+                  title: "IT Support",
+                  desc: "Network setup, system admin, VMware ESXi, and troubleshooting.",
+                  color: "#38bdf8",
+                },
+                {
+                  emoji: (
+                    <div
+                      style={{
+                        transform: "scale(0.20)",
+                        transformOrigin: "center",
+                      }}
+                    >
+                      <Deployment />
+                    </div>
+                  ),
+                  title: "Deployment & DevOps",
+                  desc: "Vercel, Netlify, CI/CD pipelines, and server configuration.",
+                  color: "#f59e0b",
+                },
+              ].map((service, i) => (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, x: 10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 + i * 0.08 }}
+                  className="flex items-start gap-3 p-3 rounded-xl
+                   hover:bg-black/3 dark:hover:bg-white/3
+                   transition-colors duration-200 group"
+                >
+                  <div
+                    className="rounded-xl flex items-center justify-center shrink-0"
+                    style={{
+                      width: "36px",
+                      height: "36px",
+                      background: `${service.color}18`,
+                      overflow: "hidden",
+                    }}
                   >
-                    <path
-                      d="M22.1,77.9a4,4,0,0,1,4-4H73.9a4,4,0,0,1,0,8H26.1A4,4,0,0,1,22.1,77.9ZM35.2,47.2a4,4,0,0,1,5.7,0L46,52.3V22.1a4,4,0,1,1,8,0V52.3l5.1-5.1a4,4,0,0,1,5.7,0,4,4,0,0,1,0,5.6l-12,12a3.9,3.9,0,0,1-5.6,0l-12-12A4,4,0,0,1,35.2,47.2Z"
-                      fill-rule="evenodd"
-                    ></path>
-                  </svg>
-                </button>
+                    {service.emoji}
+                  </div>
 
-                <svg
-                  className="group-hover:scale-125 duration-500 absolute -bottom-0.5 -right-20 w-48 h-48 z-10 -my-2  fill-gray-50 stroke-sky-900"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 64 64"
-                >
-                  <path
-                    data-name="layer1"
-                    d="M 50.4 51 C 40.5 49.1 40 46 40 44 v -1.2 a 18.9 18.9 0 0 0 5.7 -8.8 h 0.1 c 3 0 3.8 -6.3 3.8 -7.3 s 0.1 -4.7 -3 -4.7 C 53 4 30 0 22.3 6 c -5.4 0 -5.9 8 -3.9 16 c -3.1 0 -3 3.8 -3 4.7 s 0.7 7.3 3.8 7.3 c 1 3.6 2.3 6.9 4.7 9 v 1.2 c 0 2 0.5 5 -9.5 6.8 S 2 62 2 62 h 60 a 14.6 14.6 0 0 0 -11.6 -11 z"
-                    stroke-miterlimit="10"
-                    stroke-width="5"
-                  ></path>
-                </svg>
-
-                <svg
-                  className="group-hover:scale-125 duration-200 absolute -bottom-0.5 -right-20 w-48 h-48 z-10 -my-2  fill-gray-50 stroke-sky-700"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 64 64"
-                >
-                  <path
-                    data-name="layer1"
-                    d="M 50.4 51 C 40.5 49.1 40 46 40 44 v -1.2 a 18.9 18.9 0 0 0 5.7 -8.8 h 0.1 c 3 0 3.8 -6.3 3.8 -7.3 s 0.1 -4.7 -3 -4.7 C 53 4 30 0 22.3 6 c -5.4 0 -5.9 8 -3.9 16 c -3.1 0 -3 3.8 -3 4.7 s 0.7 7.3 3.8 7.3 c 1 3.6 2.3 6.9 4.7 9 v 1.2 c 0 2 0.5 5 -9.5 6.8 S 2 62 2 62 h 60 a 14.6 14.6 0 0 0 -11.6 -11 z"
-                    stroke-miterlimit="10"
-                    stroke-width="2"
-                  ></path>
-                </svg>
-              </div> */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <p className="text-sm font-semibold text-zinc-900 dark:text-white">
+                        {service.title}
+                      </p>
+                      <div
+                        className="w-1.5 h-1.5 rounded-full shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        style={{ background: service.color }}
+                      />
+                    </div>
+                    <p className="text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">
+                      {service.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
-            {/* Social Links */}
-            <div>
-              <h4 className="text-lg font-medium mb-5 text-zinc-400">
-                Connect with me
-              </h4>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { name: "GitHub", url: "https://github.com/psy-lusanta" },
-                  { name: "LinkedIn", url: "#" },
-                  { name: "Twitter", url: "#" },
-                  { name: "Instagram", url: "#" },
-                ].map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-4 bg-zinc-900 hover:bg-zinc-800 border border-white/10 hover:border-white/30 rounded-2xl transition-all text-sm text-center"
-                  >
-                    {social.name}
-                  </a>
-                ))}
+            <div
+              className="rounded-2xl p-5 flex items-center gap-4
+                  bg-white/50 dark:bg-zinc-900/60
+                  border border-black/8 dark:border-zinc-800
+                  backdrop-blur-sm"
+            >
+              <div className="relative shrink-0">
+                <div className="w-3 h-3 rounded-full bg-green-500" />
+                <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-60" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-zinc-900 dark:text-white">
+                  Available for work
+                </p>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                  Open to freelance & full-time roles
+                </p>
               </div>
             </div>
-          </div>
+
+            <a
+              href="#"
+              download
+              className="group flex items-center justify-between gap-4 rounded-2xl p-5
+               bg-white/50 dark:bg-zinc-900/60
+               border border-black/8 dark:border-zinc-800
+               backdrop-blur-sm
+               hover:border-purple-400/40 dark:hover:border-purple-500/40
+               transition-all duration-300"
+            >
+              <div>
+                <p className="text-sm font-semibold text-zinc-900 dark:text-white">
+                  Download CV
+                </p>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                  Cyrus James C. Lusanta
+                </p>
+              </div>
+              <div
+                className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0
+                    bg-zinc-100 dark:bg-zinc-800
+                    group-hover:bg-purple-100 dark:group-hover:bg-purple-900/30
+                    transition-colors duration-300"
+              >
+                <svg
+                  className="w-4 h-4 text-zinc-600 dark:text-zinc-300
+                   group-hover:text-purple-600 dark:group-hover:text-purple-400
+                   transition-colors duration-300"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>

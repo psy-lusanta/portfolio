@@ -83,9 +83,6 @@ export default function Hero({ isDark }: HeroProps) {
             <button className="px-8 sm:px-10 py-4 bg-zinc-900 dark:bg-white text-white dark:text-black font-semibold rounded-2xl hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-all duration-300 active:scale-[0.97] text-base sm:text-lg">
               View My Projects
             </button>
-            <button className="px-8 sm:px-10 py-4 border border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-2xl transition-all duration-300 active:scale-[0.97] text-base sm:text-lg">
-              Download CV
-            </button>
           </div>
         </div>
       </div>
