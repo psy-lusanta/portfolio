@@ -13,7 +13,7 @@ export default function Hero({ isDark }: HeroProps) {
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
-    offset: ["end 40%", "start start", ],  
+    offset: ["end 40%", "start start"],
   });
 
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
@@ -64,8 +64,13 @@ export default function Hero({ isDark }: HeroProps) {
                   Web Developer &
                 </p>
                 <RotatingText
-                  texts={["Team Lead", "IT Support Specialist", "UI Engineer", "Creative Coder"]}
-                  mainClassName="text-2xl sm:text-3xl md:text-4xl font-medium px-6 py-2 rounded-2xl bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/10 text-zinc-900 dark:text-white hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-500 ease-in-out text-center"
+                  texts={[
+                    "Team Lead",
+                    "IT Support Specialist",
+                    "System Administrator",
+                    "Creative Coder",
+                  ]}
+                  mainClassName="text-2xl sm:text-3xl md:text-4xl font-medium px-6 py-2 rounded-2xl bg-white/50 dark:bg-white/5 backdrop-blur-md border border-white/10 text-zinc-900 dark:text-white hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-500 ease-in-out text-center"
                   staggerFrom="last"
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
@@ -80,9 +85,12 @@ export default function Hero({ isDark }: HeroProps) {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center w-full max-w-xs sm:max-w-none mx-auto">
-            <button className="px-8 sm:px-10 py-4 bg-zinc-900 dark:bg-white text-white dark:text-black font-semibold rounded-2xl hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-all duration-300 active:scale-[0.97] text-base sm:text-lg">
+            <a
+              href="#projects"
+              className="px-8 sm:px-10 py-4 bg-zinc-900 dark:bg-white text-white dark:text-black font-semibold rounded-2xl hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-all duration-300 active:scale-[0.97] text-base sm:text-lg"
+            >
               View My Projects
-            </button>
+            </a>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X} from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ShinyText from "../components/ShinyText";
 
@@ -117,7 +117,7 @@ export default function Navbar({
             <a
               href="#contact"
               onClick={() => handleLinkClick("#contact")}
-              className="hidden text-center md:block cursor-pointer dark:bg-violet-500 rounded-md text-white font-semibold transition duration-300 ease-in-out dark:hover:bg-violet-700 dark:hover:ring-violet-800 hover:shadow-xl dark:hover:shadow-violet-500 dark:focus:ring-violet-300 dark:focus:shadow-violet-400 px-5 py-2 bg-linear-to-r from-violet-300 to-pink-300 hover:shadow-violet-200"
+              className="hidden text-center md:block cursor-pointer dark:bg-linear-to-r dark:from-purple-300 dark:via-pink-300 dark:to-cyan-300 bg-none bg-zinc-900 text-white font-semibold rounded-xl hover:opacity-90 dark:hover:bg-zinc-700 transition-all px-5 py-2"
             >
               Hire Me
             </a>
@@ -164,7 +164,7 @@ export default function Navbar({
                 <a
                   href="#contact"
                   onClick={() => handleLinkClick("#contact")}
-                  className="mt-6 py-4 bg-linear-to-r from-teal-300 via-cyan-300 to-pink-300 text-white font-semibold rounded-2xl text-center hover:bg-violet-700 transition-all"
+                  className="mt-6 py-4 bg-linear-to-r from-purple-500 via-pink-400 to-cyan-400 dark:bg-none dark:bg-zinc-900 text-white font-semibold rounded-2xl text-center hover:opacity-90 dark:hover:bg-zinc-700 transition-all"
                 >
                   Hire Me
                 </a>

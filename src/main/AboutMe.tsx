@@ -41,9 +41,8 @@ export default function About() {
                 <span className="font-semibold text-zinc-900 dark:text-white">
                   Cyrus James
                 </span>
-                , a passionate Full Stack Developer and Creative Engineer based
-                in the Philippines. I love turning ideas into smooth,
-                interactive digital experiences.
+                , a passionate Web Developer and IT professional based
+                in the Philippines. 
               </p>
               <p>
                 With a strong focus on{" "}
@@ -97,7 +96,7 @@ export default function About() {
                         to={stat.to}
                         separator=","
                         direction="up"
-                        duration={10}
+                        duration={3}
                         className="count-up-text"
                         delay={0}
                       />
@@ -194,7 +193,7 @@ export default function About() {
               <TiltedCard
                 imageSrc={Me}
                 altText="Cyrus James Lusanta"
-                captionText="Please hire me 🙏"
+                captionText="Please hire me"
                 containerHeight="100%"
                 containerWidth="100%"
                 imageHeight="100%"
