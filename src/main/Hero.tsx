@@ -66,9 +66,9 @@ export default function Hero({ isDark }: HeroProps) {
                 <RotatingText
                   texts={[
                     "Team Lead",
-                    "IT Support Specialist",
-                    "System Administrator",
+                    "IT Support",
                     "Creative Coder",
+                    "Sys Admin"
                   ]}
                   mainClassName="text-2xl sm:text-3xl md:text-4xl font-medium px-6 py-2 rounded-2xl bg-white/50 dark:bg-white/5 backdrop-blur-md border border-white/10 text-zinc-900 dark:text-white hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-500 ease-in-out text-center"
                   staggerFrom="last"

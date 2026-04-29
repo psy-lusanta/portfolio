@@ -180,14 +180,6 @@ export default function About() {
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             className="relative flex justify-center items-center py-6 md:py-12 order-first md:order-last"
           >
-            <div
-              className="absolute -top-6 -left-6 w-32 h-32 rounded-full blur-3xl opacity-30 pointer-events-none"
-              style={{ background: "#a855f7" }}
-            />
-            <div
-              className="absolute -bottom-6 -right-6 w-40 h-40 rounded-full blur-3xl opacity-20 pointer-events-none"
-              style={{ background: "#ec4899" }}
-            />
 
             <div className="relative w-full max-w-70 sm:max-w-85 md:max-w-95 lg:max-w-105 aspect-square">
               <TiltedCard

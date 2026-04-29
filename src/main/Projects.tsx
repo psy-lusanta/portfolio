@@ -21,10 +21,10 @@ const projects = [
     id: 1,
     title: "Company ID",
     description:
-      "A stunning web experience with smooth animations and 3D elements built with React and Three.js.",
-    tech: ["React", "Three.js", "Tailwind"],
+      "A digital ID system for employee identification, access, and attendance tracking.",
+    tech: ["Adobe Photoshop"],
     image: IDFront,
-    category: "Web Design",
+    category: "Company Design",
     showModal: true,
     modalSize: "max-w-sm",
     modalContent: (
@@ -37,8 +37,8 @@ const projects = [
     id: 2,
     title: "Send A Package",
     description:
-      "Full-stack modern e-commerce website with cart system, payment integration, and admin dashboard.",
-    tech: ["Next.js", "TypeScript", "Stripe", "Prisma"],
+      "An online form to input shipment details and process package deliveries.",
+    tech: ["HTML", "CSS", "Javascript", "PHP"],
     image: sendAPackage,
     live: "https://www.litexpress.com.ph/send-a-package",
     category: "Full Stack",
@@ -47,8 +47,8 @@ const projects = [
     id: 3,
     title: "Track and Trace",
     description:
-      "Interactive analytics dashboard with real-time data visualization and AI-powered insights.",
-    tech: ["React", "Recharts", "OpenAI", "Tailwind"],
+      "A system to monitor parcel status and location in real time.",
+    tech: ["HTML", "CSS", "Javascript"],
     image: TrackAndTrace,
     live: "https://litexpress.com.ph/track-and-trace/",
     category: "Dashboard",
@@ -57,8 +57,8 @@ const projects = [
     id: 4,
     title: "Shipping Estimator",
     description:
-      "A sleek rate estimation tool with dynamic forms, instant quotes, and smooth transitions.",
-    tech: ["React", "Framer Motion", "Tailwind"],
+      "A tool that calculates shipping costs based on package details.",
+    tech: ["HTML", "CSS", "Javascript"],
     image: RateEstimator,
     category: "Web Design",
     showModal: true,
@@ -76,8 +76,8 @@ const projects = [
     id: 5,
     title: "Inventory Web App",
     description:
-      "A modern inventory management system with real-time updates, user authentication, and responsive design.",
-    tech: ["Next.js", "TypeScript", "MongoDB", "Tailwind"],
+      "A system for managing inventory and assets with QR codes and a customizable dashboard.",
+    tech: ["React JSX", "NodeJS", "PostgreSQL", "PM2"],
     image: InventoryWebApp,
     category: "Full Stack",
     modalSize: "max-w-sm sm:max-w-xl md:max-w-3xl lg:max-w-5xl",

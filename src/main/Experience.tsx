@@ -6,9 +6,9 @@ import Mail from "../components/Mail";
 const experiences = [
   {
     animation: <Truck />,
-    year: "2023 – Present",
-    role: "Freelance Full-Stack Developer",
-    company: "Self-Employed",
+    year: "January 2025 – Present",
+    role: "PIC in System Development & ICT Team Lead",
+    company: "Litexpress International Inc.",
     location: "Quezon City, Philippines",
     accent: "#a855f7",
     topBar: "from-[#a855f7] via-[#ec4899] to-[#38bdf8]",
@@ -16,45 +16,46 @@ const experiences = [
     yearColor: "text-violet-400 dark:text-violet-400",
     bullet: "bg-purple-500",
     description: [
-      "Built responsive web apps for clients using React, Next.js, Tailwind CSS, and Node.js",
-      "Delivered 10+ projects including e-commerce sites, dashboards, and landing pages",
-      "Managed full project lifecycle from client consultation to Vercel/Netlify deployment",
-      "Integrated third-party APIs, payment gateways, and authentication systems",
+      "Coordinates with contractors and developers on system proposals.",
+      "Oversees evaluation and implementation of system projects.",
+      "Leads and manages the ICT team.",
+      "Ensures efficient execution of IT systems and projects.",
     ],
   },
   {
     animation: <Truck />,
-    year: "2022 – 2023",
-    role: "Junior Web Developer",
-    company: "Tech Startup / Agency",
-    location: "Remote / Manila",
+    year: "December 2023 - January 2025",
+    role: "ICT Staff",
+    company: "Litexpress International Inc.",
+    location: "Quezon City, Philippines",
     accent: "#ec4899",
     topBar: "from-[#ec4899] via-[#a855f7] to-[#38bdf8]",
     dot: "bg-pink-500 border-pink-700",
     yearColor: "text-pink-500 dark:text-pink-400",
     bullet: "bg-pink-500",
     description: [
-      "Developed and maintained multiple client websites using HTML, CSS, JS, and React",
-      "Collaborated with designers to implement pixel-perfect UI from Figma files",
-      "Optimized site performance (Lighthouse scores 90+), SEO, and accessibility",
-      "Assisted in migrating legacy sites to modern frameworks",
+      "Provides technical support and troubleshooting for hardware and software issues.",
+      "Assists in system maintenance, updates, and monitoring.",
+      "Supports network setup, configuration, and connectivity.",
+      "Handles basic user support, account management, and IT-related requests.",
     ],
   },
   {
     animation: <Mail />,
-    year: "2021 – 2022",
-    role: "Web Development Intern",
+    year: "January - May 2023",
+    role: "IT Intern",
     company: "RGS Global Solutions",
-    location: "Quezon City / Remote",
+    location: "Quezon City, Philippines",
     accent: "#38bdf8",
     topBar: "from-[#38bdf8] via-[#a855f7] to-transparent",
     dot: "bg-sky-400 border-sky-600",
     yearColor: "text-sky-500 dark:text-sky-400",
     bullet: "bg-sky-400",
     description: [
-      "Assisted in building internal tools and client-facing websites",
-      "Learned version control with Git, basic backend concepts, and responsive design",
-      "Contributed to code reviews and bug fixing",
+      "Assists with basic technical support and troubleshooting tasks.",
+      "Supports system maintenance and documentation.",
+      "Helps in monitoring IT systems and reporting issues.",
+      "Performs administrative and routine IT-related tasks as assigned.",
     ],
   },
 ];
@@ -123,7 +124,7 @@ export default function Experience() {
                       {exp.role}
                     </h3>
                     <p className="text-purple-400 text-sm sm:text-base mt-1">
-                      {exp.company} • {exp.location}
+                      {exp.company}
                     </p>
                   </div>
 
@@ -134,7 +135,7 @@ export default function Experience() {
                   )}
                 </div>
                 <p className="text-sm text-zinc-500 dark:text-zinc-500 mb-4">
-                  {exp.company} · {exp.location}
+                  · {exp.location}
                 </p>
 
                 <div className="h-px w-full mb-4 bg-black/6 dark:bg-white/6" />

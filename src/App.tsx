@@ -5,6 +5,7 @@ import About from "./main/AboutMe";
 import Experience from "./main/Experience";
 import Projects from "./main/Projects";
 import Skills from "./main/Skills";
+import Certificate from "./main/Certificates";
 import Contact from "./main/Contact";
 import Footer from "./main/Footer";
 import Grainient from "./components/Grainient";
@@ -92,6 +93,7 @@ function App() {
             <Experience />
             <Projects />
             <Skills />
+            <Certificate />
             <Contact />
           </div>
         </main>
