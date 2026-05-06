@@ -397,8 +397,8 @@ export default function Contact() {
             </div>
 
             <a
-              href="#"
-              download
+              href="/Lusanta_Resume.pdf"
+              download="Cyrus_Lusanta_Resume.pdf"
               className="group flex items-center justify-between gap-4 rounded-2xl p-5
                          bg-white/50 dark:bg-zinc-900/60
                          border border-black/8 dark:border-zinc-800

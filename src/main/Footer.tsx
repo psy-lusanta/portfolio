@@ -2,18 +2,19 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 const socialLinks = [
-  { name: "GitHub",   icon: FaGithub,   href: "https://github.com/psy-lusanta",           color: "#a855f7" },
-  { name: "LinkedIn", icon: FaLinkedin, href: "https://linkedin.com/in/yourusername",      color: "#38bdf8" },
-  { name: "Gmail",    icon: FaEnvelope, href: "mailto:cyrusjames.dev@gmail.com",           color: "#ec4899" },
+  { name: "GitHub", icon: FaGithub, href: "https://github.com/psy-lusanta", color: "#a855f7" },
+  { name: "LinkedIn", icon: FaLinkedin, href: "https://linkedin.com/in/yourusername", color: "#38bdf8" },
+  { name: "Gmail", icon: FaEnvelope, href: "https://mail.google.com/mail/u/0/", color: "#ec4899" },
 ];
 
 const navLinks = [
-  { name: "Home",       href: "#home"       },
-  { name: "About",      href: "#about"      },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects",   href: "#projects"   },
-  { name: "Skills",     href: "#skills"     },
-  { name: "Contact",    href: "#contact"    },
+  { name: "Home",         href: "#home"       },
+  { name: "About",        href: "#about"      },
+  { name: "Experience",   href: "#experience" },
+  { name: "Projects",     href: "#projects"   },
+  { name: "Skills",       href: "#skills"     },
+  { name: "Certificates", href: "#certificates"},
+  { name: "Contact",      href: "#contact"    },
 ];
 
 export default function Footer() {
